@@ -1,11 +1,10 @@
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 
 const config = {
   entry: "./public/index.js",
   output: {
-    path: __dirname + "/public/dist",
+    path: __dirname + "/public/dist/",
     filename: "bundle.js"
   },
   mode: "production",
@@ -24,7 +23,7 @@ const config = {
 
       name: "Budget Tracker",
       short_name: "Budget Tracker",
-      theme_color: "#ffffff",
+      theme_color: "#317EFB",
       background_color: "#dddddd",
       start_url: "/",
       display: "standalone",
@@ -32,15 +31,14 @@ const config = {
       icons: [
         {
           src: path.resolve(
-            __dirname,
             "public/icons/icon-512x512.png"
             ),
           // the plugin will generate an image for each size
           // included in the size array
-          size: [192, 512]
+          sizes: [192, 512]
         }
       ]
-    }), new BundleAnalyzerPlugin()
+    })
   ]
 };
 
